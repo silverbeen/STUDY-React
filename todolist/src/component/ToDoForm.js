@@ -20,18 +20,21 @@ class ToDoForm extends Component {
   render() {
     const { text } = this.state;
     return (
-      <S.Input>
-        <form onSubmit={this.handleSubmit}>
-          {/* 입력 받은 값을 state 에 저장하고 onsubmit 발생하면 값을 보냄  */}
-          <S.InputValue
-            value={text}
-            name="text"
-            placeholder="..입력"
-            onChange={this.handleChange}
-          ></S.InputValue>
-          <S.Button type="submit">추가</S.Button>
-        </form>
-      </S.Input>
+      <>
+        <S.Title>TO DO LIST</S.Title>
+        <S.Input>
+          <form onSubmit={this.handleSubmit}>
+            {/* 입력 받은 값을 state 에 저장하고 onsubmit 발생하면 값을 보냄  */}
+            <S.InputValue
+              value={text}
+              name="text"
+              placeholder="..입력"
+              onChange={this.handleChange}
+            ></S.InputValue>
+            <S.Button type="submit">추가</S.Button>
+          </form>
+        </S.Input>
+      </>
     );
   }
 }
