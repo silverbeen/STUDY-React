@@ -10,15 +10,15 @@ class App extends Component {
     ToDolist: [
       {
         id: 1,
-        text: "러닝 뛰기",
-      },
-      {
-        id: 2,
         text: "공부하기",
       },
       {
+        id: 2,
+        text: "TODOLIST 만들기",
+      },
+      {
         id: 3,
-        text: "독서하기",
+        text: "MongDB",
       },
     ],
     search: "",

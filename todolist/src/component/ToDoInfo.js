@@ -41,7 +41,6 @@ class ToDoInfo extends Component {
   render() {
     const { data } = this.props;
     const { toggle, text } = this.state;
-    console.log(data.text + ' 렌더링 됐어유');
 
     return (
       <S.Modify>
