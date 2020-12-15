@@ -1,1 +1,1 @@
-REACT-study
+React를 공부하는 내 포트폴리오
