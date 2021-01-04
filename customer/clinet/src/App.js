@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Customer from "./components/Customer";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -20,35 +19,26 @@ const styles = (theme) => ({
   },
 });
 
-const customers = [
-  {
-    id: 1,
-    image: "https://placeimg.com/64/64/any",
-    name: "강은빈",
-    birthday: "020209",
-    job: "학생",
-  },
-  {
-    id: 2,
-    image: "https://placeimg.com/64/64/any",
-    name: "silverbeen",
-    birthday: "020209",
-    job: "학생",
-  },
-  {
-    id: 3,
-    image: "https://placeimg.com/64/64/any",
-    name: "goldbeen",
-    birthday: "020209",
-    job: "학생",
-  },
-];
-
 class App extends React.Component {
-  
+  //변경될 수 있는 값들
+  state = {
+    customers: "",
+  };
+
+  componentDidMount() {
+    this.callApi()
+      .then((res) => this.setState({ customers: res }))
+      .catch((err) => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch("/api/customers");
+    const body = await response.json();
+    return body;
+  };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <>
@@ -64,18 +54,20 @@ class App extends React.Component {
               </TableRow>
             </TableHaad>
             <TableBody>
-              {customers.map((c) => {
-                return (
-                  <Customer
-                    key={c.id}
-                    id={c.id}
-                    name={c.name}
-                    image={c.image}
-                    birthday={c.birthday}
-                    job={c.job}
-                  />
-                );
-              })}
+              {this.state.customers
+                ? this.state.customers.map((c) => {
+                    return (
+                      <Customer
+                        key={c.id}
+                        id={c.id}
+                        name={c.name}
+                        image={c.image}
+                        birthday={c.birthday}
+                        job={c.job}
+                      />
+                    );
+                  })
+                : ""}
             </TableBody>
           </Table>
         </Paper>
