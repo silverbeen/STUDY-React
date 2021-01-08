@@ -1,25 +1,24 @@
 import React from "react";
 import axios from "axios";
+import List from './components/List';
 
 class Allitem extends React.Component {
   callNewsAPI = () => {
-    const newsListAPI =
-      "http://newsapi.org/v2/everything?q=bitcoin&from=2020-12-01&sortBy=publishedAt&apiKey=9e13930af2ed45e49e472714d8a895fc";
-    return axios.get(newsListAPI).then((response) => {
-      console.log(response.data);
-      let result = response.data.slice(this.state.preItems, this.state.items);
+    const newsListAPI = "http://newsapi.org/v2/everything?q=bitcoin&from=2020-12-01&sortBy=publishedAt&apiKey=9e13930af2ed45e49e472714d8a895fc";
+    return axios.get(newsListAPI).then((res) => {
+      console.log(res.data);
+      let result = res.data.slice(this.state.preItems, this.state.items);
       console.log(result);
       return result;
     });
   };
-
   //지정한 숫자만큼의 배열 가져오기
   constructor() {
     super();
 
     this.state = {
       newsList: [],
-      items: 20,
+      items: 10,
       preItems: 0,
     };
   }
@@ -58,10 +57,11 @@ class Allitem extends React.Component {
         <div className="toInfo">
           <div className="totalItems">
             <p className="totalNum">
-              총 <span className="pointSpan"></span>
+              총 <span className="pointSpan">1541</span>
               개의 상품이 조회되었습니다.
             </p>
           </div>
+					<List></List>
         </div>
       </article>
     );

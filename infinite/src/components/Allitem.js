@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+import List from './List';
 
 class Allitem extends React.Component {
   callNewsAPI = () => {
-    const newsListAPI = "https://newsapi.org/";
+    const newsListAPI = "http://newsapi.org/v2/everything?q=bitcoin&from=2020-12-01&sortBy=publishedAt&apiKey=9e13930af2ed45e49e472714d8a895fc";
     return axios.get(newsListAPI).then((res) => {
       console.log(res.data);
       let result = res.data.slice(this.state.preItems, this.state.items);
@@ -59,6 +60,7 @@ class Allitem extends React.Component {
               개의 상품이 조회되었습니다.
             </p>
           </div>
+					<List></List>
         </div>
       </article>
     );
