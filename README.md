@@ -2,11 +2,15 @@
 
 
 
+
+
 ### react 설치
 
 ```
 npx create-react-app 프로젝트 이름
 ```
+
+
 
 
 
@@ -44,6 +48,8 @@ import styled from 'styled-components';
 
 
 
+
+
 ### scss 설치
 
 ```
@@ -51,6 +57,9 @@ npm install node-sass --save
 ```
 
 css와 사용법은 거의 동일하지만, css에서 지원하지않는 변수지정 함수활용 등을 활용해 더욱 생산적인 디자인 작업이 가능하다!
+
+
+
 
 
 
@@ -88,6 +97,10 @@ return (
 ```
 
 2. 위처럼 작성
+
+
+
+
 
 
 
