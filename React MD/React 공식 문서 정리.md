@@ -125,7 +125,7 @@ React DOM은 요소와 하위 요소를 이전 요소와 비교하고 DOM을 원
 
 
 
-# 3. 구성 요소 및 소품
+# 3. 구성 요소 및 소품(props)
 
 - 구성요소는 JS 함수와 같음
 - 임의의 입력 ( "props"라고 함)을 받아들이고 화면에 표시되어야하는 내용을 설명하는 React 요소를 반환
@@ -147,6 +147,8 @@ function Welcome(props) {
 
 
 - 클래스
+
+클래스는 props가 내장되어 있어 사용할 때에는 **꼭 this. 을 붙여 사용**해야 한다!!!!!
 
 ```react
 class Welcome extends React.Component {
