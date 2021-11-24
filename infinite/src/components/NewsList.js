@@ -15,7 +15,7 @@ const NewsList = () => {
 
     try {
       const response = await axios.get(
-        "http://newsapi.org/v2/everything?q=bitcoin&from=2020-12-09&sortBy=publishedAt&apiKey=48c7bc1d5b954bd8b43a2005d7ac0037"
+        "https://newsapi.org/v2/everything?q=tesla&from=2021-03-19&sortBy=publishedAt&apiKey=9e13930af2ed45e49e472714d8a895fc"
       );
       setArticles(response.data.articles);
       console.log(response);
@@ -54,7 +54,7 @@ const NewsList = () => {
 
     try {
       const response = await axios.get(
-        "http://newsapi.org/v2/everything?q=bitcoin&from=2020-12-09&sortBy=publishedAt&apiKey=48c7bc1d5b954bd8b43a2005d7ac0037"
+        "https://newsapi.org/v2/everything?q=tesla&from=2021-03-19&sortBy=publishedAt&apiKey=9e13930af2ed45e49e472714d8a895fc"
       );
       console.log(response);
       const fetchData = response.data.articles; //피드데이터 부분
