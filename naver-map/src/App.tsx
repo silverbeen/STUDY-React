@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import List from "./components/List";
+import List from "./components/list/List";
 import Map from "./components/Map";
 
 const Container = styled.div`
