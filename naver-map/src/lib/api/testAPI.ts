@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const test = async () => {
   try {
     const data = await axios(
