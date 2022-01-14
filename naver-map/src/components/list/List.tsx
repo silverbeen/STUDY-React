@@ -1,25 +1,21 @@
+import { useEffect } from "react";
 import styled from "@emotion/styled";
-import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { MapSearchApi } from "../lib/api/searchAPI";
-import { test } from "../lib/api/testAPI";
-import { mapListState } from "../lib/atom/map";
+import { MapSearchApi } from "../../lib/api/searchAPI";
+import { test } from "../../lib/api/testAPI";
+import { mapListState } from "../../lib/atom/map";
 import ListItem from "./ListItem";
 
 const List = () => {
   const [mapList, setMapList] = useRecoilState(mapListState);
 
   useEffect(() => {
+    MapSearchApi();
+
     test().then((res) => {
       setMapList(res);
-      console.log(res);
     });
-  }, []);
-
-  useEffect(() => {
-    console.log(process.env.REACT_APP_NAVER_CLIENT_ID);
-    MapSearchApi();
-  }, []);
+  }, [setMapList]);
 
   return (
     <Container>
@@ -29,10 +25,10 @@ const List = () => {
         </div>
       </SearchWrapper>
       <FilterWrapper>
-        <span>{mapList.length} 개</span>
+        <span>{mapList?.length}개</span>
         <div className="filter-item-box">filter</div>
       </FilterWrapper>
-      {mapList.map((item: any) => (
+      {mapList?.map((item: any) => (
         <ListItem key={item.index} item={item} />
       ))}
     </Container>
@@ -43,6 +39,7 @@ export default List;
 
 const Container = styled.div`
   width: 30%;
+  min-width: 20rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -81,5 +78,11 @@ const FilterWrapper = styled.div`
     border-radius: 20px;
     border: 1px solid #ededed;
     cursor: pointer;
+    transition: all 0.5s;
+
+    :hover {
+      background: black;
+      color: white;
+    }
   }
 `;
