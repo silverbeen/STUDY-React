@@ -15,7 +15,7 @@ const List = () => {
     test().then((res) => {
       setMapList(res);
     });
-  }, [setMapList]);
+  }, []);
 
   return (
     <Container>
