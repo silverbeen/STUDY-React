@@ -23,7 +23,6 @@ export const hello = () => {
     <Hello
       name={name}
       big={big}
-      onHello={action("onHello")}
       onBye={action("onBye")}
     />
   );
